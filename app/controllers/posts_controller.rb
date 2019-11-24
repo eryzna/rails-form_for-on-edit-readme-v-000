@@ -26,5 +26,7 @@ class PostsController < ApplicationController
 	def update
 	  @post = Post.find(params[:id])
 	  @post.update(params.require(:post).permit(:title, :description))
+	  #.require excapsulates title and description within a post hash
+	  redirect_to post_path(@post)
 	end
 end
